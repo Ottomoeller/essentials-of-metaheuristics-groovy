@@ -35,7 +35,7 @@ public class Individual_${id} extends AdvancedRobot
 //- run -------------------------------------------------------------------------------------------------------------------------------------
 	public void run()
 	{
-		setColors(Color.white,Color.black,Color.black);
+		setColors(Color.white,Color.red,Color.blue);
 		setAdjustGunForRobotTurn(true);
 		setAdjustRadarForGunTurn(true);
 		
@@ -82,9 +82,7 @@ public class Individual_${id} extends AdvancedRobot
 		else if(getRoundNum() > 5 && hitPercent > 0.16d){
 			shotPower = 3.0d;
 		}
-		
-		shotPower = Math.min(Math.min(Math.max(lastScan.getEnergy() / 4d, 0.1d), shotPower), myEnergy - 0.100001d);
-
+		shotPower = Math.min(Math.min(Math.max(lastScan.getEnergy() / 4d, 0.1d), shotPower), myEnergy*(${my_energy}) + 3d);
 
 		if(getGunTurnRemaining() == 0 && myEnergy > 5) {
 			setFire(shotPower);
